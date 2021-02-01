@@ -60,10 +60,9 @@ class universalTuringMachine{
     string terminatingState;
     string blankSymbol;
     vector<string> permissableSymbols;
-    vector<vector<string>> rules;
+    vector<vector<string>> machineDescriptionTape;
     vector<string> permissableActions = {"L", "N", "R"};
     vector<string> bufferTape;
-    vector<string> machineDesription;
     //a vector is theoretically infinite????
     vector<string> tapeDescription = {"1", "1", "1"};
 
@@ -95,14 +94,15 @@ void universalTuringMachine::halt(){
 }
 
 void turingMachineSimulator::simulate(){
-        string STATE = bufferTape[0];
-        string SYMBOL = bufferTape[1];
 
        for(int x=0; x<rules.size(); x++){
-            if(rules[x][0] == STATE && rules[x][1] == SYMBOL){
+            if(rules[x][0] == bufferTape[0] && rules[x][1] == bufferTape[1]){
                    if(rules[x][4] == "halt"){
                         halt();
+                        break;
                    }
+                   bufferTape[0] = rules[x][3];
+                   bufferTape[1] = rules[x][1];
             }
 
        }
