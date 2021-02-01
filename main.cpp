@@ -42,20 +42,92 @@ design of program:
                 and class variables
             - functions
                 - halt()
-
+                    - return tape
                 - nextState()
-
+                    - change tape of memory buffer
+                    - change contents of the tape
                 - should you also impliment the functions in the paper? *dunno
 
 
        - simulate() function outputs the resulting tape after computation (output)
             -
 
-
-
 */
+
+class universalTuringMachine{
+    vector<string> states;
+    string initialState;
+    string terminatingState;
+    string blankSymbol;
+    vector<string> permissableSymbols;
+    vector<vector<string>> rules;
+    vector<string> permissableActions = {"L", "N", "R"};
+    vector<string> bufferTape;
+    vector<string> machineDesription;
+    //a vector is theoretically infinite????
+    vector<string> tapeDescription = {"1", "1", "1"};
+
+    public:
+        void setValues(vector<string>, string, string, string, vector<string>, vector<vector<string>>);
+        void halt();
+        void simulate();
+
+        string returnVar(){
+            return rules[1][1];
+        }
+};
+
+void universalTuringMachine::setValues (vector<string> States, string InitialState, string TerminatingState, string BlankSymbol,
+    vector<string> PermissableSymbols, vector<vector<string>> Rules){
+    states = States;
+    initialState = InitialState;
+    terminatingState = TerminatingState;
+    blankSymbol = BlankSymbol;
+    permissableSymbols = PermissableSymbols;
+    rules = Rules;
+    }
+
+void universalTuringMachine::halt(){
+    for(int x=0; x<tapeDescription.size(); x++){
+        cout << tapeDescription[x] << " ";
+    }
+    cout << endl;
+}
+
+void turingMachineSimulator::simulate(){
+        string STATE = bufferTape[0];
+        string SYMBOL = bufferTape[1];
+
+       for(int x=0; x<rules.size(); x++){
+            if(rules[x][0] == STATE && rules[x][1] == SYMBOL){
+                   if(rules[x][4] == "halt"){
+                        halt();
+                   }
+            }
+
+       }
+
+
+}
+
+
+/*
+string simulate(){ //takes in an object?
+
+
+
+    }
+
+
+}
+*/
+
+
+
 int main() {
-    cout <<"hi"<<endl;
-
-
+    universalTuringMachine test;
+    vector<string> state = {"q0", "qf"};
+    vector<string> symbols = {"B", "1"};
+    vector<vector<string>> rules = {{"q0", "1", "1", "right", "q0"}, {"q0", "B", "1", "stay", "qf"}};
+    test.setValues(state, "q0", "qf", "B", symbols, rules);
 }
