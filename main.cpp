@@ -62,7 +62,7 @@ class universalTuringMachine{
     vector<string> permissableSymbols;
     vector<vector<string>> machineDescriptionTape;
     vector<string> permissableActions = {"L", "N", "R"};
-    vector<string> bufferTape;
+    string bufferTape[2];
     //a vector is theoretically infinite????
     vector<string> tapeDescription = {"1", "1", "1"};
 
@@ -72,7 +72,7 @@ class universalTuringMachine{
         void simulate();
 
         string returnVar(){
-            return rules[1][1];
+            return machineDescriptionTape[1][1];
         }
 };
 
@@ -83,7 +83,7 @@ void universalTuringMachine::setValues (vector<string> States, string InitialSta
     terminatingState = TerminatingState;
     blankSymbol = BlankSymbol;
     permissableSymbols = PermissableSymbols;
-    rules = Rules;
+    machineDescriptionTape = Rules;
     }
 
 void universalTuringMachine::halt(){
@@ -93,34 +93,44 @@ void universalTuringMachine::halt(){
     cout << endl;
 }
 
-void turingMachineSimulator::simulate(){
-
-       for(int x=0; x<rules.size(); x++){
-            if(rules[x][0] == bufferTape[0] && rules[x][1] == bufferTape[1]){
-                   if(rules[x][4] == "halt"){
-                        halt();
-                        break;
-                   }
-                   bufferTape[0] = rules[x][3];
-                   bufferTape[1] = rules[x][1];
-            }
-
-       }
-
-
-}
-
-
-/*
-string simulate(){ //takes in an object?
-
-
-
+void universalTuringMachine::simulate(){
+    bool HALT = false;
+    if(tapeDescription.size() == 0){
+        tapeDescription.push_back(blankSymbol);
     }
-
-
+    long long index = 0;
+    bufferTape[0] = initialState;
+    bufferTape[1] = blankSymbol;
+    while(HALT == false){
+        cout <<"BRO ITS WORKING CUH"<<endl;
+        for(int x=0; x<machineDescriptionTape.size(); x++){
+            if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == bufferTape[1]){
+                if(machineDescriptionTape[x][4] == terminatingState){
+                    halt();
+                    HALT = true;
+                    break;
+                }
+                bufferTape[0] = machineDescriptionTape[x][4];
+                bufferTape[1] = machineDescriptionTape[x][2];
+                if(machineDescriptionTape[x][3] == "right"){
+                    tapeDescription[index] = machineDescriptionTape[x][2];
+                    tapeDescription.push_back(initialSymbol);
+                    index++;
+                    continue;
+                }else if(machineDescriptionTape[x][3] == "left"){
+                    tapeDescription[index] = machineDescriptionTape[x][2];
+                    tapeDescription.push_back(initialSymbol);
+                    index--;
+                    continue;
+                }else if(machineDescriptionTape[x][3] == "stay"){
+                    tapeDescription[index] = machineDescriptionTape[x][2];
+                    tapeDescription.push_back(initialSymbol);
+                    continue;
+                }
+            }
+        }
+    }
 }
-*/
 
 
 
@@ -130,4 +140,6 @@ int main() {
     vector<string> symbols = {"B", "1"};
     vector<vector<string>> rules = {{"q0", "1", "1", "right", "q0"}, {"q0", "B", "1", "stay", "qf"}};
     test.setValues(state, "q0", "qf", "B", symbols, rules);
+    test.simulate();
+
 }
