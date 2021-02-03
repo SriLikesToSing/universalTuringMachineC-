@@ -100,32 +100,34 @@ void universalTuringMachine::simulate(){
     }
     long long index = 0;
     bufferTape[0] = initialState;
-    bufferTape[1] = blankSymbol;
+    bufferTape[1] = "1";
     while(HALT == false){
         cout <<"BRO ITS WORKING CUH"<<endl;
         for(int x=0; x<machineDescriptionTape.size(); x++){
-            if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == bufferTape[1]){
+            if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == tapeDescription[index]){
                 if(machineDescriptionTape[x][4] == terminatingState){
+                    cout << "TAPE" <<endl;
+                    cout << machineDescriptionTape[x][1] << endl;
+                    tapeDescription[index] = machineDescriptionTape[x][2];
                     halt();
                     HALT = true;
                     break;
                 }
                 bufferTape[0] = machineDescriptionTape[x][4];
-                bufferTape[1] = machineDescriptionTape[x][2];
                 if(machineDescriptionTape[x][3] == "right"){
+                    cout << "ITS MOVING RIGHT BRO!"<<endl;
+                    cout << index << endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
-                    tapeDescription.push_back(initialSymbol);
+                    tapeDescription.push_back(blankSymbol);
                     index++;
-                    continue;
+                    break;
                 }else if(machineDescriptionTape[x][3] == "left"){
                     tapeDescription[index] = machineDescriptionTape[x][2];
-                    tapeDescription.push_back(initialSymbol);
                     index--;
-                    continue;
+                    break;
                 }else if(machineDescriptionTape[x][3] == "stay"){
                     tapeDescription[index] = machineDescriptionTape[x][2];
-                    tapeDescription.push_back(initialSymbol);
-                    continue;
+                    break;
                 }
             }
         }
