@@ -64,12 +64,14 @@ class universalTuringMachine{
     vector<string> permissableActions = {"L", "N", "R"};
     string bufferTape[2];
     //a vector is theoretically infinite????
-    vector<string> tapeDescription = {"1", "1", "1"};
+    //vector<string> tapeDescription = {"1", "1", "1"};
+    vector<string> tapeDescription = {};
 
     public:
         void setValues(vector<string>, string, string, string, vector<string>, vector<vector<string>>);
         void halt();
         void simulate();
+        void printTape();
 
         string returnVar(){
             return machineDescriptionTape[1][1];
@@ -93,6 +95,13 @@ void universalTuringMachine::halt(){
     cout << endl;
 }
 
+void universalTuringMachine::printTape(){
+    for(int x=0; x<tapeDescription.size(); x++){
+        cout << tapeDescription[x] << " ";
+    }
+    cout << endl;
+}
+
 void universalTuringMachine::simulate(){
     bool HALT = false;
     if(tapeDescription.size() == 0){
@@ -101,10 +110,13 @@ void universalTuringMachine::simulate(){
     long long index = 0;
     bufferTape[0] = initialState;
     bufferTape[1] = "1";
+    long long count = 0;
     while(HALT == false){
-        cout <<"BRO ITS WORKING CUH"<<endl;
+        cout << count << endl;
+        printTape();
         for(int x=0; x<machineDescriptionTape.size(); x++){
             if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == tapeDescription[index]){
+                cout << "BRO!"<<endl;
                 if(machineDescriptionTape[x][4] == terminatingState){
                     cout << "TAPE" <<endl;
                     cout << machineDescriptionTape[x][1] << endl;
@@ -113,7 +125,10 @@ void universalTuringMachine::simulate(){
                     HALT = true;
                     break;
                 }
+                cout << machineDescriptionTape[x][0] << endl;
                 bufferTape[0] = machineDescriptionTape[x][4];
+                cout << "buffer tape"<<endl;
+                cout << bufferTape[0]<<endl;
                 if(machineDescriptionTape[x][3] == "right"){
                     cout << "ITS MOVING RIGHT BRO!"<<endl;
                     cout << index << endl;
@@ -122,6 +137,7 @@ void universalTuringMachine::simulate(){
                     index++;
                     break;
                 }else if(machineDescriptionTape[x][3] == "left"){
+                    cout << "ITS MOVING LEFT BRO!"<<endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
                     index--;
                     break;
@@ -131,17 +147,46 @@ void universalTuringMachine::simulate(){
                 }
             }
         }
+        count++;
     }
 }
+/*
+kororo = crying
+maitei = greeting
 
+karu = eating
+
+mo ai = wll not
+ma = were not, was
+
+
+akaruma = I was not eating
+ojupita =
+
+
+*/
 
 
 int main() {
+
+    // Simple incrementer Turing machine
+    /*
     universalTuringMachine test;
     vector<string> state = {"q0", "qf"};
     vector<string> symbols = {"B", "1"};
     vector<vector<string>> rules = {{"q0", "1", "1", "right", "q0"}, {"q0", "B", "1", "stay", "qf"}};
     test.setValues(state, "q0", "qf", "B", symbols, rules);
     test.simulate();
+    */
+
+    // 3-State Busy Beaver turing machine
+    universalTuringMachine threeStateBusyBeaver;
+    vector<string> state = {"a", "b", "c", "halt"};
+    vector<string> symbols = {"0", "1"};
+    vector<vector<string>> rules = {{"a", "0", "1", "right", "b"}, {"a", "1", "1", "left", "c"}, {"b", "0", "1", "left", "a"},
+    {"b", "1", "1", "right", "b"}, {"c", "0", "1", "left", "b"}, {"c", "1", "1", "stay", "halt"}};
+    threeStateBusyBeaver.setValues(state, "a", "halt", "0", symbols, rules);
+    threeStateBusyBeaver.simulate();
+
 
 }
