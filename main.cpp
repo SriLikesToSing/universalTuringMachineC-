@@ -112,12 +112,8 @@ void universalTuringMachine::simulate(){
     bufferTape[0] = initialState;
     long long count = 0;
     while(HALT == false){
-        //printTape();
+        printTape();
         for(int x=0; x<machineDescriptionTape.size(); x++){
-            if(index == startIndex+3){
-                cout << "JLKJLKAJDLK"<<endl;
-                cout << tapeDescription[index]<< " " << machineDescriptionTape[x][1] << endl;
-            }
             if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == tapeDescription[index]){
                 if(machineDescriptionTape[x][4] == terminatingState){
                     cout << "ITS ENDING BRO" <<endl;
@@ -174,6 +170,7 @@ int main() {
     */
 
     // 3-State Busy Beaver turing machine
+    /*
     universalTuringMachine threeStateBusyBeaver;
     vector<string> state = {"a", "b", "c", "halt"};
     vector<string> symbols = {"0", "1"};
@@ -181,8 +178,20 @@ int main() {
     {"b", "1", "1", "right", "b"}, {"c", "0", "1", "left", "b"}, {"c", "1", "1", "stay", "halt"}};
     threeStateBusyBeaver.setValues(state, "a", "halt", "0", symbols, rules);
     threeStateBusyBeaver.simulate();
-
+    */
 
     // 5-state, 2-symbol probable Busy Beaver machine from wikipedia
+    universalTuringMachine fiveStateTwoSymbolBusyBeaver;
+    vector<string> state = {"A", "B", "C", "D", "E", "H"};
+    vector<string> symbols = {"0", "1"};
+    vector<vector<string>> rules = {{"A", "0", "1", "right", "B"}, {"A", "1", "1", "left", "C"}, {"B", "0", "1", "right", "C"},
+    {"B", "1", "1", "right", "B"}, {"C", "0", "1", "right", "D"}, {"C", "1", "0", "left", "E"}, {"D", "0", "1", "left", "A"},
+    {"D", "1", "1", "left", "D"}, {"E", "0", "1", "stay", "H"}, {"E", "1", "0", "left", "A"}};
+    fiveStateTwoSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
+    fiveStateTwoSymbolBusyBeaver.simulate();
+
+
+
+
 
 }
