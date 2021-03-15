@@ -146,15 +146,7 @@ void universalTuringMachine::simulate(){
         count++;
     }
 }
-/*
-kororo = crying
-maitei = greeting
-karu = eating
-mo ai = wll not
-ma = were not, was
-akaruma = I was not eating
-ojupita =
-*/
+
 
 
 int main() {
