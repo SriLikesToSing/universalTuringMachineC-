@@ -176,8 +176,4 @@ int main() {
     fiveStateTwoSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
     fiveStateTwoSymbolBusyBeaver.simulate();
 
-
-
-
-
 }
