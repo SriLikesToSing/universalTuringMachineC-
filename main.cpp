@@ -116,7 +116,6 @@ void universalTuringMachine::simulate(){
         for(int x=0; x<machineDescriptionTape.size(); x++){
             if(machineDescriptionTape[x][0] == bufferTape[0] && machineDescriptionTape[x][1] == tapeDescription[index]){
                 if(machineDescriptionTape[x][4] == terminatingState){
-                    cout << "ITS ENDING BRO" <<endl;
                     cout << machineDescriptionTape[x][1] << endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
                     halt();
@@ -126,18 +125,15 @@ void universalTuringMachine::simulate(){
                 cout << machineDescriptionTape[x][3] << endl;
                 bufferTape[0] = machineDescriptionTape[x][4];
                 if(machineDescriptionTape[x][3] == "right"){
-                    cout << "ITS MOVING RIGHT BRO!"<<endl;
                     cout << tapeDescription[index] << endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
                     index++;
                     break;
                 }else if(machineDescriptionTape[x][3] == "left"){
-                    cout << "ITS MOVING LEFT BRO!"<<endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
                     index--;
                     break;
                 }else if(machineDescriptionTape[x][3] == "stay"){
-                    cout << "lol"<<endl;
                     tapeDescription[index] = machineDescriptionTape[x][2];
                     break;
                 }
@@ -146,8 +142,6 @@ void universalTuringMachine::simulate(){
         count++;
     }
 }
-
-
 
 int main() {
 
