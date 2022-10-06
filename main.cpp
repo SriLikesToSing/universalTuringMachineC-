@@ -10,7 +10,7 @@ using namespace std;
 memory buffer : turing number : tape description
 design of program:
   - divide the tape into 3 sections enstead of using 3 separate tapes (prob saves memory and increases efficiecy especially during 5 state busy beaver)
-        - wrong????? (1/30/2021)
+        - wrong?
   - Create a universal turing mahine class????
   - have a simulate function
     - the tape should be a vector<string>
