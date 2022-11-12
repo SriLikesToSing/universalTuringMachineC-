@@ -41,7 +41,6 @@ design of program:
                     - change contents of the tape
                 - should you also impliment the functions in the paper? *dunno
        - simulate() function outputs the resulting tape after computation (output)
-            -
 */
 
 class universalTuringMachine{
