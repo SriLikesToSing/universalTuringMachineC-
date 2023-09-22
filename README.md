@@ -51,7 +51,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
 
    The program includes examples of Turing machines that you can simulate. Uncomment the example you want to run in the main function of the turing_machine_simulator.cpp file.
 
-   ##Simple Incrementer Turing Machine
+   # Simple Incrementer Turing Machine
    ```bash
    universalTuringMachine test;
    vector<string> state = {"q0", "qf"};
@@ -61,7 +61,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    test.simulate();
    ```
 
-   ##3-State Busy Beaver Turing Machine
+   # 3-State Busy Beaver Turing Machine
    ```bash
    universalTuringMachine threeStateBusyBeaver;
    vector<string> state = {"a", "b", "c", "halt"};
@@ -72,7 +72,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    threeStateBusyBeaver.simulate();
    ```
 
-   ##5-State, 2-Symbol Probable Busy Beaver Turing Machine
+   # 5-State, 2-Symbol Probable Busy Beaver Turing Machine
    ```bash
    universalTuringMachine fiveStateTwoSymbolBusyBeaver;
    vector<string> state = {"A", "B", "C", "D", "E", "H"};
