@@ -73,7 +73,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    ```
 
    # 5-State, 2-Symbol Probable Busy Beaver Turing Machine
--  the interesting part about this is that it does not have a computable answer that is within the bounds of a normal computers memory size, only a bound that is really large. 
+-  The interesting part about this is that it does not have a computable answer that is within the bounds of a normal computers memory size, only a bound that is really large. 
    ```bash
    universalTuringMachine fiveStateTwoSymbolBusyBeaver;
    vector<string> state = {"A", "B", "C", "D", "E", "H"};
