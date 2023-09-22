@@ -38,5 +38,56 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    ```bash
    g++ turing_machine_simulator.cpp -o turing_machine_simulator
    ```
+## Usage
 
+   To run the UTM Simulator, use the following command:
+
+   ```bash
+   ./turing_machine_simulator
+   ```
+   This will execute the program and simulate the behavior of the Turing machine based on the provided machine description.
+
+## Examples
+
+   The program includes examples of Turing machines that you can simulate. Uncomment the example you want to run in the main function of the turing_machine_simulator.cpp file.
+
+   #Simple Incrementer Turing Machine
+   ```bash
+   universalTuringMachine test;
+   vector<string> state = {"q0", "qf"};
+   vector<string> symbols = {"0", "1"};
+   vector<vector<string>> rules = {{"q0", "1", "1", "right", "q0"}, {"q0", "0", "1", "stay", "qf"}};
+   test.setValues(state, "q0", "qf", "0", symbols, rules);
+   test.simulate();
+   ```
+
+   #3-State Busy Beaver Turing Machine
+   ```bash
+   universalTuringMachine threeStateBusyBeaver;
+   vector<string> state = {"a", "b", "c", "halt"};
+   vector<string> symbols = {"0", "1"};
+   vector<vector<string>> rules = {{"a", "0", "1", "right", "b"}, {"a", "1", "1", "left", "c"}, {"b", "0", "1", "left", "a"},
+   {"b", "1", "1", "right", "b"}, {"c", "0", "1", "left", "b"}, {"c", "1", "1", "stay", "halt"}};
+   threeStateBusyBeaver.setValues(state, "a", "halt", "0", symbols, rules);
+   threeStateBusyBeaver.simulate();
+   ```
+
+   #5-State, 2-Symbol Probable Busy Beaver Turing Machine
+   ```bash
+   universalTuringMachine fiveStateTwoSymbolBusyBeaver;
+   vector<string> state = {"A", "B", "C", "D", "E", "H"};
+   vector<string> symbols = {"0", "1"};
+   vector<vector<string>> rules = {{"A", "0", "1", "right", "B"}, {"A", "1", "1", "left", "C"}, {"B", "0", "1", "right", "C"},
+   {"B", "1", "1", "right", "B"}, {"C", "0", "1", "right", "D"}, {"C", "1", "0", "left", "E"}, {"D", "0", "1", "left", "A"},
+   {"D", "1", "1", "left", "D"}, {"E", "0", "1", "stay", "H"}, {"E", "1", "0", "left", "A"}};
+   fiveStateTwoSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
+   fiveStateTwoSymbolBusyBeaver.simulate();
+```
+
+Feel free to uncomment and run any of the provided examples or create your own Turing machine configurations for simulation.
+
+
+   
+
+   
 
