@@ -28,3 +28,15 @@ Before running the UTM Simulator, make sure you have the following prerequisites
 
    ```bash
    git clone https://github.com/yourusername/universal-turing-machine-simulator.git
+   ```
+   Navigate to the project directory:
+
+   ```bash
+   cd universal-turing-machine-simulator
+   ```
+   Compile the program using your C++ compiler:
+   ```bash
+   g++ turing_machine_simulator.cpp -o turing_machine_simulator
+   ```
+
+
