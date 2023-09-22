@@ -83,9 +83,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    {"D", "1", "1", "left", "D"}, {"E", "0", "1", "stay", "H"}, {"E", "1", "0", "left", "A"}};
    fiveStateTwoSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
    fiveStateTwoSymbolBusyBeaver.simulate();
-```
-
-Feel free to uncomment and run any of the provided examples or create your own Turing machine configurations for simulation.
+``` Feel free to uncomment and run any of the provided examples or create your own Turing machine configurations for simulation.
 
 
    
