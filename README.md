@@ -32,7 +32,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    Navigate to the project directory:
 
    ```bash
-   cd universal-turing-machine-simulator
+   cd universalTuringMachineC-
    ```
    Compile the program using your C++ compiler:
    ```bash
