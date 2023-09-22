@@ -7,6 +7,7 @@ A fully functional 3 tape universal turing machine written from scratch in C++. 
 
 ## Introduction
 
+- [A Primer on Turing Machines and The Busy Beaver Problem](https://math.mit.edu/research/highschool/primes/circle/documents/2022/Esther%20&%20Sarah.pdf)
 
 ## Table of Contents
 
