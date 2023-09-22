@@ -27,7 +27,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/universal-turing-machine-simulator.git
+   git clone https://github.com/SriLikesToSing/universalTuringMachineC-
    ```
    Navigate to the project directory:
 
