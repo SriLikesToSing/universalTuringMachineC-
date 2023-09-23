@@ -50,7 +50,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
 
 ## Examples
 
-   The program includes examples of Turing machines that you can simulate. Uncomment the example you want to run in the main function of the turing_machine_simulator.cpp file.
+   The program includes examples of Turing machines that you can simulate. Uncomment the example you want to run in the main function of the main.cpp file.
 
    # Simple Incrementer Turing Machine
    ```bash
