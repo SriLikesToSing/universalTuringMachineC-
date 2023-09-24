@@ -37,7 +37,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    ```
    Compile the program using your C++ compiler:
    ```bash
-   g++ turing_machine_simulator.cpp -o turing_machine_simulator
+   g++ main.cpp -o turing_machine_simulator
    ```
 ## Usage
 
