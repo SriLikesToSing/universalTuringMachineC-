@@ -94,8 +94,8 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    vector<string> symbols = {"0", "1", "2", "3"};
    vector<vector<string>> rules = {{"A", "0", "1", "right", "B"}, {"A", "1", "3", "left", "B"}, {"A", "2", "1", "right", "H"}, {"A", "3", "2", "right", "A"}, {"B", "0", "2", "left", "C"},
    {"B", "1", "3", "right", "B"}, {"B", "2", "1", "left", "C"}, {"B", "3", "2", "right", "A"} {"C", "0", "3", "right", "B"}, {"C", "1", "1", "left", "B"}, {"C", "2", "3", "left", "C"}, {"C", "3", "2", "right", "C"}};
-   fiveStateTwoSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
-   fiveStateTwoSymbolBusyBeaver.simulate();
+   threeStateFourSymbolBusyBeaver.setValues(state, "A", "H", "0", symbols, rules);
+   threeStateFourSymbolBusyBeaver.simulate();
    ```
 
 Feel free to uncomment and run any of the provided examples or create your own Turing machine configurations for simulation.
