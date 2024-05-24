@@ -86,7 +86,7 @@ Before running the UTM Simulator, make sure you have the following prerequisites
    fiveStateTwoSymbolBusyBeaver.simulate();
    ```
 
-    # 3-state 4-symbol "Ackermann-level" Turing Machine.
+  # 3-state 4-symbol "Ackermann-level" Turing Machine.
 -  This function is able to reach an ackerman number where the approximate halting occurs at BB(3, 4) > Ack(14) where Ack(n) = n ↑ⁿ n. Discovery was fairly recent. 
    ```bash
    universalTuringMachine threeStateFourSymbolBusyBeaver;
